@@ -1,27 +1,51 @@
 {
-  "milestones": [
-    "Agent Deployed",
-    "Portal Access",
-    "Official Website",
-    "Website Extraction",
-    "Verification"
-  ],
-  "teams": {
-    "Team Red": {
-      "agent": "red-artist-agent",
-      "flags": [false, false, false, false, false]
-    },
-    "Team Blue": {
-      "agent": "blue-artist-agent",
-      "flags": [false, false, false, false, false]
-    },
-    "Team Green": {
-      "agent": "green-artist-agent",
-      "flags": [false, false, false, false, false]
-    },
-    "Team Yellow": {
-      "agent": "yellow-artist-agent",
-      "flags": [false, false, false, false, false]
-    }
-  }
+"milestones": [
+"Agent Deployed",
+"Portal Access",
+"Official Website",
+"Website Extraction",
+"Verification"
+],
+"teams": {
+"Team Red": {
+"agent": "red-artist-agent",
+"flags": [
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null}
+]
+},
+"Team Blue": {
+"agent": "blue-artist-agent",
+"flags": [
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null}
+]
+},
+"Team Green": {
+"agent": "green-artist-agent",
+"flags": [
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null}
+]
+},
+"Team Yellow": {
+"agent": "yellow-artist-agent",
+"flags": [
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null},
+{"completed": false, "timestamp": null}
+]
+}
+}
 }

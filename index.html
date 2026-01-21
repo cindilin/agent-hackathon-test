@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Agent Hackathon Dashboard</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <h1>🤖 Agent Hackathon – Capture the Flag</h1>
-        <p class="subtitle">Progress updates automatically as flags are validated</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Agent Hackathon Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🤖 Agent Hackathon – Capture the Flag</h1>
+      <p class="subtitle">Progress updates automatically as flags are validated</p>
 
+      <table id="dashboard"></table>
 
-        <table id="dashboard"></table>
+      <div id="celebration" class="hidden">🏆 All milestones completed! Congratulations! 🎉</div>
 
-
-        <p class="footer">Last updated via flags.json</p>
-
-
-        <script src="app.js"></script>
-    </body>
+      <p class="footer">Last updated via flags.json</p>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>

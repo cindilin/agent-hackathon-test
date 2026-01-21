@@ -1,0 +1,54 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 32px;
+    background: #fafafa;
+}
+
+
+h1 {
+    margin-bottom: 4px;
+}
+
+
+.subtitle {
+    margin-bottom: 24px;
+    color: #666;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+
+th {
+    background-color: #f0f0f0;
+}
+
+
+.completed {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+}
+
+
+.pending {
+    background-color: #e2e3e5;
+    color: #6c757d;
+}
+
+
+.footer {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #999;
+}

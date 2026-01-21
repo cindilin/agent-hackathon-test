@@ -3,12 +3,17 @@ fetch('flags.json')
   .then(data => {
     const table = document.getElementById('dashboard');
 
+    // Update stats
+    document.getElementById('teamCount').textContent = Object.keys(data.teams).length;
+    document.getElementById('milestoneCount').textContent = data.milestones.length;
+
     // Header row
     const header = document.createElement('tr');
     header.innerHTML = '<th>Team</th>' + data.milestones.map(m => `<th>${m}</th>`).join('');
     table.appendChild(header);
 
-    let allComplete = false;
+    let anyTeamComplete = false;
+    let totalCompleted = 0;
 
     // Team rows
     Object.entries(data.teams).forEach(([team, info]) => {
@@ -22,6 +27,7 @@ fetch('flags.json')
         if (flagObj.completed) {
           cell.className = 'completed';
           cell.innerHTML = `✅<span class='timestamp'>${flagObj.timestamp}</span>`;
+          totalCompleted++;
         } else {
           cell.className = 'pending';
           cell.textContent = '⏳';
@@ -30,13 +36,21 @@ fetch('flags.json')
         row.appendChild(cell);
       });
 
-      if (teamComplete) { allComplete = true; }
+      if (teamComplete && info.flags.length > 0) {
+        anyTeamComplete = true;
+      }
 
       table.appendChild(row);
     });
 
-    // Show celebration if all milestones done
-    if (allComplete) {
+    // Update completed count
+    document.getElementById('completedCount').textContent = totalCompleted;
+
+    // Update last update time
+    document.getElementById('lastUpdate').textContent = new Date().toLocaleString();
+
+    // Show celebration if any team completed all milestones
+    if (anyTeamComplete) {
       document.getElementById('celebration').classList.remove('hidden');
     }
   });

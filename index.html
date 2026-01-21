@@ -2,19 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agent Hackathon Dashboard</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="hero">
+      <div class="hero-content">
+        <div class="logo">🤖</div>
+        <h1>Agent Hackathon</h1>
+        <p class="hero-subtitle">Capture the Flag Competition</p>
+      </div>
+    </div>
+
     <div class="container">
-      <h1>🤖 Agent Hackathon – Capture the Flag</h1>
-      <p class="subtitle">Progress updates automatically as flags are validated</p>
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-info">
+            <div class="stat-label">Teams</div>
+            <div class="stat-value" id="teamCount">4</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-info">
+            <div class="stat-label">Milestones</div>
+            <div class="stat-value" id="milestoneCount">5</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-info">
+            <div class="stat-label">Completed</div>
+            <div class="stat-value" id="completedCount">0</div>
+          </div>
+        </div>
+      </div>
 
-      <table id="dashboard"></table>
+      <div class="dashboard-card">
+        <h2>Progress Tracker</h2>
+        <table id="dashboard"></table>
+      </div>
 
-      <div id="celebration" class="hidden">🏆 All milestones completed! Congratulations! 🎉</div>
+      <div id="celebration" class="hidden">
+        <div class="celebration-content">
+          <div class="trophy-icon">🏆</div>
+          <h3>All Milestones Completed!</h3>
+          <p>Congratulations to the winning team! 🎉</p>
+        </div>
+      </div>
 
-      <p class="footer">Last updated via flags.json</p>
+      <div class="footer">
+        <p>Last updated: <span id="lastUpdate">Loading...</span></p>
+        <p class="footer-note">Data synced from flags.json</p>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>

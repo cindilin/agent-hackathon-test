@@ -59,11 +59,17 @@ function loadDashboard() {
       const winnerIcon = document.getElementById('winnerIcon');
       const winnerTooltip = document.getElementById('winnerTooltip');
       
+      // Clear previous event listeners by cloning and replacing
+      const newWinnerIcon = winnerIcon.cloneNode(true);
+      winnerIcon.parentNode.replaceChild(newWinnerIcon, winnerIcon);
+      const updatedWinnerIcon = document.getElementById('winnerIcon');
+      const updatedWinnerTooltip = document.getElementById('winnerTooltip');
+      
       if (winningTeams.length > 0) {
         // Sort teams by completion time (earliest first)
         winningTeams.sort((a, b) => a.completionTime - b.completionTime);
         
-        winnerIcon.classList.remove('hidden');
+        updatedWinnerIcon.classList.remove('hidden');
         
         // Build leaderboard HTML
         let leaderboardHTML = '<div class="leaderboard-title">🏆 Congratulations!</div>';
@@ -73,22 +79,22 @@ function loadDashboard() {
           leaderboardHTML += `<div class="leaderboard-entry">${medal} <strong>${team.name}</strong><span class="completion-time">${timeStr}</span></div>`;
         });
         
-        winnerTooltip.innerHTML = leaderboardHTML;
+        updatedWinnerTooltip.innerHTML = leaderboardHTML;
         
         // Toggle tooltip on click
-        winnerIcon.onclick = function() {
-          winnerTooltip.classList.toggle('hidden');
+        updatedWinnerIcon.onclick = function() {
+          updatedWinnerTooltip.classList.toggle('hidden');
         };
         
         // Hide tooltip when clicking elsewhere
         document.addEventListener('click', function(e) {
-          if (!winnerIcon.contains(e.target)) {
-            winnerTooltip.classList.add('hidden');
+          if (!updatedWinnerIcon.contains(e.target)) {
+            updatedWinnerTooltip.classList.add('hidden');
           }
         });
       } else {
         // Hide crown icon if no teams have won
-        winnerIcon.classList.add('hidden');
+        updatedWinnerIcon.classList.add('hidden');
       }
     });
 }

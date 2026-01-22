@@ -30,7 +30,8 @@ function loadDashboard() {
           const cell = document.createElement('td');
           if (flagObj.completed) {
             cell.className = 'completed';
-            cell.innerHTML = `✅<span class='timestamp'>${flagObj.timestamp}</span>`;
+            const localTime = new Date(flagObj.timestamp).toLocaleString();
+            cell.innerHTML = `✅<span class='timestamp'>${localTime}</span>`;
             totalCompleted++;
           } else {
             cell.className = 'pending';

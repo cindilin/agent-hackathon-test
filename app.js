@@ -65,7 +65,7 @@ fetch('flags.json?t=' + new Date().getTime())
       let leaderboardHTML = '<div class="leaderboard-title">🏆 Winners</div>';
       winningTeams.forEach((team, index) => {
         const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🎖️';
-        const timeStr = new Date(team.completionTime).toLocaleTimeString();
+        const timeStr = new Date(team.completionTime).toLocaleString();
         leaderboardHTML += `<div class="leaderboard-entry">${medal} <strong>${team.name}</strong><span class="completion-time">${timeStr}</span></div>`;
       });
       

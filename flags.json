@@ -15,8 +15,8 @@
           "timestamp": "2026-01-22 01:13:04"
         },
         {
-          "completed": false,
-          "timestamp": null
+          "completed": true,
+          "timestamp": "2026-01-22 01:16:01"
         },
         {
           "completed": false,

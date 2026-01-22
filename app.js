@@ -12,7 +12,7 @@ fetch('flags.json?t=' + new Date().getTime())
     header.innerHTML = '<th>Team</th>' + data.milestones.map(m => `<th>${m}</th>`).join('');
     table.appendChild(header);
 
-    let anyTeamComplete = false;
+    let winningTeam = null;
     let totalCompleted = 0;
 
     // Team rows
@@ -37,7 +37,7 @@ fetch('flags.json?t=' + new Date().getTime())
       });
 
       if (teamComplete && info.flags.length > 0) {
-        anyTeamComplete = true;
+        winningTeam = team;
       }
 
       table.appendChild(row);
@@ -49,8 +49,24 @@ fetch('flags.json?t=' + new Date().getTime())
     // Update last update time
     document.getElementById('lastUpdate').textContent = new Date().toLocaleString();
 
-    // Show celebration if any team completed all milestones
-    if (anyTeamComplete) {
-      document.getElementById('celebration').classList.remove('hidden');
+    // Show crown icon if any team completed all milestones
+    const winnerIcon = document.getElementById('winnerIcon');
+    const winnerTooltip = document.getElementById('winnerTooltip');
+    
+    if (winningTeam) {
+      winnerIcon.classList.remove('hidden');
+      winnerTooltip.textContent = `🎉 Winner: ${winningTeam}!`;
+      
+      // Toggle tooltip on click
+      winnerIcon.onclick = function() {
+        winnerTooltip.classList.toggle('hidden');
+      };
+      
+      // Hide tooltip when clicking elsewhere
+      document.addEventListener('click', function(e) {
+        if (!winnerIcon.contains(e.target)) {
+          winnerTooltip.classList.add('hidden');
+        }
+      });
     }
   });

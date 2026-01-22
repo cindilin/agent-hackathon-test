@@ -12,7 +12,7 @@ fetch('flags.json?t=' + new Date().getTime())
     header.innerHTML = '<th>Team</th>' + data.milestones.map(m => `<th>${m}</th>`).join('');
     table.appendChild(header);
 
-    let winningTeam = null;
+    let winningTeams = [];
     let totalCompleted = 0;
 
     // Team rows
@@ -37,7 +37,9 @@ fetch('flags.json?t=' + new Date().getTime())
       });
 
       if (teamComplete && info.flags.length > 0) {
-        winningTeam = team;
+        // Get the latest timestamp from this team's completed flags
+        const completionTime = Math.max(...info.flags.map(f => f.timestamp ? new Date(f.timestamp).getTime() : 0));
+        winningTeams.push({ name: team, completionTime: completionTime });
       }
 
       table.appendChild(row);
@@ -53,9 +55,21 @@ fetch('flags.json?t=' + new Date().getTime())
     const winnerIcon = document.getElementById('winnerIcon');
     const winnerTooltip = document.getElementById('winnerTooltip');
     
-    if (winningTeam) {
+    if (winningTeams.length > 0) {
+      // Sort teams by completion time (earliest first)
+      winningTeams.sort((a, b) => a.completionTime - b.completionTime);
+      
       winnerIcon.classList.remove('hidden');
-      winnerTooltip.textContent = `🎉 Winner: ${winningTeam}!`;
+      
+      // Build leaderboard HTML
+      let leaderboardHTML = '<div class="leaderboard-title">🏆 Winners</div>';
+      winningTeams.forEach((team, index) => {
+        const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🎖️';
+        const timeStr = new Date(team.completionTime).toLocaleTimeString();
+        leaderboardHTML += `<div class="leaderboard-entry">${medal} <strong>${team.name}</strong><span class="completion-time">${timeStr}</span></div>`;
+      });
+      
+      winnerTooltip.innerHTML = leaderboardHTML;
       
       // Toggle tooltip on click
       winnerIcon.onclick = function() {

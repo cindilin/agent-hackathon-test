@@ -1,51 +1,111 @@
 {
-    "milestones": [
-        "Agent Deployed",
-        "Portal Access",
-        "Official Website",
-        "Website Extraction",
-        "Verification"
-    ],
-    "teams": {
-        "Team Red": {
-            "agent": "red-artist-agent",
-            "flags": [
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null}
-            ]
+  "milestones": [
+    "Agent Deployed",
+    "Portal Access",
+    "Official Website",
+    "Website Extraction",
+    "Verification"
+  ],
+  "teams": {
+    "Team Red": {
+      "agent": "red-artist-agent",
+      "flags": [
+        {
+          "completed": true,
+          "timestamp": "2026-01-22 01:06:03"
         },
-        "Team Blue": {
-            "agent": "blue-artist-agent",
-            "flags": [
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null}
-            ]
+        {
+          "completed": false,
+          "timestamp": null
         },
-        "Team Green": {
-            "agent": "green-artist-agent",
-            "flags": [
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null}
-            ]
+        {
+          "completed": false,
+          "timestamp": null
         },
-        "Team Yellow": {
-            "agent": "yellow-artist-agent",
-            "flags": [
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null},
-                {"completed": false, "timestamp": null}
-            ]
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
         }
+      ]
+    },
+    "Team Blue": {
+      "agent": "blue-artist-agent",
+      "flags": [
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        }
+      ]
+    },
+    "Team Green": {
+      "agent": "green-artist-agent",
+      "flags": [
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        }
+      ]
+    },
+    "Team Yellow": {
+      "agent": "yellow-artist-agent",
+      "flags": [
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        },
+        {
+          "completed": false,
+          "timestamp": null
+        }
+      ]
     }
+  }
 }

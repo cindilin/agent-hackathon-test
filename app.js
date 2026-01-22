@@ -59,17 +59,12 @@ function loadDashboard() {
       const winnerIcon = document.getElementById('winnerIcon');
       const winnerTooltip = document.getElementById('winnerTooltip');
       
-      // Clear previous event listeners by cloning and replacing
-      const newWinnerIcon = winnerIcon.cloneNode(true);
-      winnerIcon.parentNode.replaceChild(newWinnerIcon, winnerIcon);
-      const updatedWinnerIcon = document.getElementById('winnerIcon');
-      const updatedWinnerTooltip = document.getElementById('winnerTooltip');
-      
       if (winningTeams.length > 0) {
         // Sort teams by completion time (earliest first)
         winningTeams.sort((a, b) => a.completionTime - b.completionTime);
         
-        updatedWinnerIcon.classList.remove('hidden');
+        // Add winner class to trigger glow animation
+        winnerIcon.classList.add('winner');
         
         // Build leaderboard HTML
         let leaderboardHTML = '<div class="leaderboard-title">🏆 Congratulations!</div>';
@@ -79,22 +74,26 @@ function loadDashboard() {
           leaderboardHTML += `<div class="leaderboard-entry">${medal} <strong>${team.name}</strong><span class="completion-time">${timeStr}</span></div>`;
         });
         
-        updatedWinnerTooltip.innerHTML = leaderboardHTML;
+        winnerTooltip.innerHTML = leaderboardHTML;
         
-        // Toggle tooltip on click
-        updatedWinnerIcon.onclick = function() {
-          updatedWinnerTooltip.classList.toggle('hidden');
-        };
-        
-        // Hide tooltip when clicking elsewhere
-        document.addEventListener('click', function(e) {
-          if (!updatedWinnerIcon.contains(e.target)) {
-            updatedWinnerTooltip.classList.add('hidden');
-          }
-        });
+        // Set up click handler (only once per refresh)
+        if (!winnerIcon.dataset.handlerSet) {
+          winnerIcon.onclick = function() {
+            winnerTooltip.classList.toggle('hidden');
+          };
+          
+          // Hide tooltip when clicking elsewhere
+          document.addEventListener('click', function(e) {
+            if (!winnerIcon.contains(e.target)) {
+              winnerTooltip.classList.add('hidden');
+            }
+          });
+          
+          winnerIcon.dataset.handlerSet = 'true';
+        }
       } else {
-        // Hide crown icon if no teams have won
-        updatedWinnerIcon.classList.add('hidden');
+        // Remove winner class to disable glow animation
+        winnerIcon.classList.remove('winner');
       }
     });
 }

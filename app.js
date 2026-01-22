@@ -1,4 +1,4 @@
-fetch('flags.json')
+fetch('flags.json?t=' + new Date().getTime())
   .then(res => res.json())
   .then(data => {
     const table = document.getElementById('dashboard');

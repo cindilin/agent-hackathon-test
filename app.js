@@ -86,6 +86,9 @@ function loadDashboard() {
             winnerTooltip.classList.add('hidden');
           }
         });
+      } else {
+        // Hide crown icon if no teams have won
+        winnerIcon.classList.add('hidden');
       }
     });
 }

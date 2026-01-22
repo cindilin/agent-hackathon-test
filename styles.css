@@ -164,11 +164,6 @@ tbody tr {
   border-bottom: 1px solid #e2e8f0;
 }
 
-tbody tr:hover {
-  background: #f7fafc;
-  transform: scale(1.01);
-}
-
 tbody tr:last-child {
   border-bottom: none;
 }
@@ -199,11 +194,6 @@ td small {
   transition: all 0.3s ease;
 }
 
-.completed:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
-}
-
 .completed .timestamp {
   display: block;
   font-size: 11px;
@@ -218,10 +208,6 @@ td small {
   border-radius: 8px;
   opacity: 0.7;
   transition: all 0.3s ease;
-}
-
-.pending:hover {
-  opacity: 1;
 }
 
 /* Celebration */

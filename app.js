@@ -66,7 +66,7 @@ function loadDashboard() {
         winnerIcon.classList.remove('hidden');
         
         // Build leaderboard HTML
-        let leaderboardHTML = '<div class="leaderboard-title">🏆 Congratulations On Reaching The End!</div>';
+        let leaderboardHTML = '<div class="leaderboard-title">🏆 Congratulations!</div>';
         winningTeams.forEach((team, index) => {
           const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🎖️';
           const timeStr = new Date(team.completionTime).toLocaleString();

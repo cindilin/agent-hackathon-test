@@ -357,26 +357,35 @@ td small {
   right: 30px;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
-  animation: float 3s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite;
 }
 
 .winner-icon:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.8);
 }
 
 .winner-icon .crown {
   font-size: 32px;
   animation: crownPulse 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 50px rgba(255, 215, 0, 0.9);
+  }
 }
 
 @keyframes crownPulse {

@@ -60,6 +60,22 @@ function loadDashboard() {
       const winnerIcon = document.getElementById('winnerIcon');
       const winnerTooltip = document.getElementById('winnerTooltip');
       
+      // Set up click handler (only once per refresh)
+      if (!winnerIcon.dataset.handlerSet) {
+        winnerIcon.onclick = function() {
+          winnerTooltip.classList.toggle('hidden');
+        };
+        
+        // Hide tooltip when clicking elsewhere
+        document.addEventListener('click', function(e) {
+          if (!winnerIcon.contains(e.target)) {
+            winnerTooltip.classList.add('hidden');
+          }
+        });
+        
+        winnerIcon.dataset.handlerSet = 'true';
+      }
+      
       if (winningTeams.length > 0) {
         // Sort teams by completion time (earliest first)
         winningTeams.sort((a, b) => a.completionTime - b.completionTime);
@@ -76,25 +92,12 @@ function loadDashboard() {
         });
         
         winnerTooltip.innerHTML = leaderboardHTML;
-        
-        // Set up click handler (only once per refresh)
-        if (!winnerIcon.dataset.handlerSet) {
-          winnerIcon.onclick = function() {
-            winnerTooltip.classList.toggle('hidden');
-          };
-          
-          // Hide tooltip when clicking elsewhere
-          document.addEventListener('click', function(e) {
-            if (!winnerIcon.contains(e.target)) {
-              winnerTooltip.classList.add('hidden');
-            }
-          });
-          
-          winnerIcon.dataset.handlerSet = 'true';
-        }
       } else {
         // Remove winner class to disable glow animation
         winnerIcon.classList.remove('winner');
+        
+        // Show "no winner yet" message
+        winnerTooltip.innerHTML = '<div class="leaderboard-title">👑 No Winners Yet</div><div class="leaderboard-entry">Keep racing to the finish!</div>';
       }
     });
 }

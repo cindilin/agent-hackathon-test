@@ -11,8 +11,8 @@
       "agent": "red-artist-agent",
       "flags": [
         {
-          "completed": true,
-          "timestamp": "2026-01-22 01:06:03"
+          "completed": false,
+          "timestamp": null
         },
         {
           "completed": false,

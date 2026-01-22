@@ -15,9 +15,10 @@ body {
 
 /* Hero Section */
 .hero {
-  padding: 60px 20px;
+  padding: 60px 20px 100px;
   text-align: center;
   color: white;
+  background: transparent;
 }
 
 .hero-content {

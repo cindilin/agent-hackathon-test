@@ -3,7 +3,8 @@ import sys
 from datetime import datetime
 
 TEAM = sys.argv[1]  # e.g. "Team Red"
-MILESTONE_INDEX = int(sys.argv[2])  # 0-based index
+MILESTONE_NUMBER = int(sys.argv[2])  # 1-based milestone number (1-5)
+MILESTONE_INDEX = MILESTONE_NUMBER - 1  # Convert to 0-based index
 REVERT = sys.argv[3].lower() == "true" if len(sys.argv) > 3 else False
 
 with open('flags.json') as f:
@@ -25,7 +26,7 @@ if REVERT:
     with open("flags.json", "w") as f:
         json.dump(data, f, indent=2)
 
-    print(f"⏳ Flag reverted for {TEAM}, milestone {MILESTONE_INDEX}")
+    print(f"⏳ Flag reverted for {TEAM}, milestone {MILESTONE_NUMBER}")
     print("Remember to commit and push changes")
 else:
     if flags[MILESTONE_INDEX]["completed"]:
@@ -39,6 +40,6 @@ else:
         json.dump(data, f, indent=2)
 
     print(
-        f"✅ Flag set for {TEAM}, milestone {MILESTONE_INDEX} at {flags[MILESTONE_INDEX]['timestamp']}"
+        f"✅ Flag set for {TEAM}, milestone {MILESTONE_NUMBER} at {flags[MILESTONE_INDEX]['timestamp']}"
     )
     print("Remember to commit and push changes")

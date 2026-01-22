@@ -7,7 +7,7 @@ on:
         description: 'Team name (must match flags.json)'
         required: true
       milestone:
-        description: 'Milestone index (0-based)'
+        description: 'Milestone number (1-5)'
         required: true
       revert:
         description: 'Revert flag to pending (uncheck to validate)'
@@ -18,6 +18,8 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repo

@@ -1,0 +1,36 @@
+name: Validate Hackathon Flag
+
+on:
+  workflow_dispatch:
+    inputs:
+      team:
+        description: 'Team name (must match flags.json)'
+        required: true
+      milestone:
+        description: 'Milestone index (0-based)'
+        required: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate flag
+        run: |
+          python validate_flag.py "${{ github.event.inputs.team }}" "${{ github.event.inputs.milestone }}"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "hackathon-bot"
+          git config user.email "hackathon-bot@users.noreply.github.com"
+          git add flags.json
+          git commit -m "Flag: ${{ github.event.inputs.team }} milestone ${{ github.event.inputs.milestone }}" || echo "No changes to commit"
+          git push

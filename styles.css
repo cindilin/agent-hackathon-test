@@ -136,7 +136,7 @@ th, td {
 }
 
 th {
-  background: #667eea;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   font-weight: 700;
   font-size: 12px;
@@ -145,7 +145,8 @@ th {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-left: 2px solid white;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 th:first-child {

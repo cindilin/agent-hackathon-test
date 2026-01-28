@@ -343,14 +343,13 @@ td small {
   right: 30px;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   z-index: 1000;
   text-align: center;
 }
@@ -361,19 +360,16 @@ td small {
 }
 
 .winner-icon:hover {
-  transform: scale(1.1);
-}
-
-.winner-icon.winner:hover {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 35px rgba(212, 175, 55, 0.7);
+  transform: scale(1.2);
 }
 
 .winner-icon .crown {
-  font-size: 32px;
+  font-size: 48px;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .winner-icon.winner .crown {
@@ -382,10 +378,10 @@ td small {
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(212, 175, 55, 0.5);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
   }
   50% {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(212, 175, 55, 0.8);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
   }
 }
 
